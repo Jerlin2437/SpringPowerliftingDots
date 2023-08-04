@@ -16,34 +16,16 @@ public class Calculator {
     private Double weight;
     private Double total;
     private Double dots;
-    public Calculator(){}
-    public Calculator(String name, Double weight, Double total){
+
+    public Calculator(String name, Double weight, Double total, Double dots) {
         this.name = name;
         this.weight = weight;
         this.total = total;
-        Dots dots1 = new Dots(total, weight);
-
+        this.dots = dots;
     }
 
-    public String getName() {
-        return name;
-    }
+    public Calculator() {
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Calculator that = (Calculator) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(weight, that.weight) && Objects.equals(total, that.total);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, weight, total);
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Integer getId() {
@@ -52,6 +34,14 @@ public class Calculator {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Double getWeight() {
@@ -70,14 +60,36 @@ public class Calculator {
         this.total = total;
     }
 
+    public Double getDots() {
+        return dots;
+    }
+
+    public void setDots(Double dots) {
+        this.dots = dots;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Calculator that = (Calculator) o;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(weight, that.weight) && Objects.equals(total, that.total) && Objects.equals(dots, that.dots);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, weight, total, dots);
+    }
+
     @Override
     public String toString() {
         return "Calculator{" +
                 "id=" + id +
-                ",name= " + name +
+                ", name='" + name + '\'' +
                 ", weight=" + weight +
                 ", total=" + total +
+                ", dots=" + dots +
                 '}';
     }
-
 }
